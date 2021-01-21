@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>octogone</title>
+
+    <link rel="stylesheet" href="general.css">
+    <script src="cookies.js"></script>
+</head>
+
+<body>
+    <p>
+        HP perso : <span id="HPValue" class="bold"></span>
+        <span id="Touché">Touché</span>
+        <span id="Esquive">Esquive</span><br> Attaque perso : <span id="attackValue"></span><br> Esquive perso : <span id="dodgeValue"></span><br>
+    </p>
+    <p>
+        HP monstre : <span id="HPValueMonster" class="bold"></span>
+        <span id="TouchéMonster">Touché</span>
+        <span id="EsquiveMonster">Esquive</span><br> Attaque monstre : <span id="attackValueMonster"></span><br> Esquive monstre : <span id="dodgeValueMonster"></span><br>
+    </p>
+
+    <button id="fightbtn" type="button" onclick="start();">A l'attaque !</button>
+    <button id="nextbtn" type="button" style="display: none;" onclick="loadnext();">Au suivant !</button>
+    <a position="left" type="button" style="display: none;" href="chooseCharacter.html">Retour au choix du héros</a>
+
+    <h5>Hello <span id="spanname"></span></h5>
+    <p>Vous avez battu <span id="spanmon"></span> monstres.</p>
+
+
+    <a href="chooseCharacter.html">Retour au choix du héros</a>
+</body>
+
+</html>
+
+<script>
+    chargeinfo();
+    var hpmax = parseFloat(findValueCookie("HP"));
+    var dodge = parseFloat(findValueCookie("dodge"));
+    var attack = parseFloat(findValueCookie("attack"));
+    var nbtue = 0;
+</script>

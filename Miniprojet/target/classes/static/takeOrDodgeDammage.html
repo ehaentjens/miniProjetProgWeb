@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Take or Dodge</title>
+
+    <link rel="stylesheet" href="general.css">
+    <script src="cookies.js"></script>
+</head>
+
+<body>
+    <form action="/takeDammage" method="get" id="form">
+        <label for="nbDammage">Dégats :</label>
+        <input type="number" id="nbDammage" name="dammage">
+
+        <button id="testButton" class="button" type="button" onclick="draw();">Combatre</button>
+        <div id="takeOrDodge">
+            <p style="color:red;" id="touche"> Aïe </p>
+            <p style="color:green;" id="esquive"> Raté </p>
+            <a href="/showCharacter.html" id="ficheperso">Voir la fiche du personnage</a>
+
+        </div>
+        <div>
+            <button id="submitButton" type="submit" style="display:none disabled">Prendre les  dégats</button>
+        </div>
+    </form>
+
+    <script>
+        document.getElementById("touche").style.display = "none";
+        document.getElementById("esquive").style.display = "none";
+        document.getElementById("submitButton").style.display = "none";
+        document.getElementById("submitButton").disabled = true;
+        document.getElementById("ficheperso").style.display = "none";
+
+
+        function draw() {
+            if (document.getElementById("nbDammage").value != '') {
+                document.getElementById("testButton").innerHTML = "Y retourner";
+                console.log("draw");
+                var nameValue = findValueCookie("name");
+                var attackValue = findValueCookie("attack");
+                var HPValue = findValueCookie("HP");
+                var dodgeValue = parseFloat(findValueCookie("dodge"));
+                if (dodgeValue < Math.random()) {
+                    document.getElementById("touche").style.display = "initial";
+                    document.getElementById("esquive").style.display = "none";
+                    document.getElementById("submitButton").style.display = "initial";
+                    document.getElementById("submitButton").disabled = false;
+                    document.getElementById("ficheperso").style.display = "none";
+
+
+                    console.log("touche");
+                } else {
+                    document.getElementById("touche").style.display = "none";
+                    document.getElementById("esquive").style.display = "initial";
+                    document.getElementById("submitButton").style.display = "none";
+                    document.getElementById("submitButton").disabled = true;
+                    document.getElementById("ficheperso").style.display = "initial";
+
+
+
+                    console.log("esquive");
+                }
+
+            }
+        }
+    </script>
+
+</body>
+
+</html>

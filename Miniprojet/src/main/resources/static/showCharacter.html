@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Mon Personnage</title>
+    <link rel="stylesheet" href="general.css">
+    <script src="cookies.js"></script>
+</head>
+
+<body>
+
+    <p>
+        Nom perso : <span id="nameValue" class="bold"></span> <br> HP perso : <span id="HPValue" class="bold"></span><br> Attaque perso : <span id="attackValue" class="bold"></span><br> Esquive perso : <span id="dodgeValue" class="bold"></span><br>
+    </p>
+
+    <p>
+        Nom monstre : <span id="nameValueMonster" class="bold"></span> <br> HP monstre : <span id="HPValueMonster" class="bold"></span><br> Attaque monstre : <span id="attackValueMonster" class="bold"></span><br> Esquive monstre : <span id="dodgeValueMonster"
+            class="bold"></span><br>
+    </p>
+
+
+    <a class="btn btn-outline-danger" href="/arene.html">Au combat !</a>
+
+
+    <script>
+        //cherche et affiche le nom du perso
+        document.getElementById("nameValue").innerHTML = findValueCookie("name");
+        document.getElementById("attackValue").innerHTML = findValueCookie("attack");
+        document.getElementById("HPValue").innerHTML = findValueCookie("HP");
+        document.getElementById("dodgeValue").innerHTML = findValueCookie("dodge");
+
+        //cherche et affiche le nom du monster
+        document.getElementById("nameValueMonster").innerHTML = findValueCookie("nameMonster");
+        document.getElementById("attackValueMonster").innerHTML = findValueCookie("attackMonster");
+        document.getElementById("HPValueMonster").innerHTML = findValueCookie("HPMonster");
+        document.getElementById("dodgeValueMonster").innerHTML = findValueCookie("dodgeMonster");
+    </script>
+
+    <a href="/takeOrDodgeDammage.html" class="button">Recevoir un coup</a>
+
+</body>
+
+</html>
